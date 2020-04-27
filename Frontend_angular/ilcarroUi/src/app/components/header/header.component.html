@@ -1,0 +1,29 @@
+<header id="header">
+  <div class="sidebar-overlay"></div>
+  <div class="container">
+    <nav class="navbar navbar-expand-xl">
+      <a routerLink="/main" class="navbar-brand"><img src="../../../assets/images/brand-logo.svg" width="200px"
+          alt="ilCarro Logo" /></a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <a class="nav-link" routerLinkActive="active" routerLink="/main">Search <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/car">Let the car work</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/terms">Terms of use</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/registration" *ngIf="!authService.isLoggedIn()">Sign up</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/login" *ngIf="!authService.isLoggedIn()">Log in</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/profile" *ngIf="authService.isLoggedIn()">Profile</a>
+          <a class= "nav-link" routerLink="/login" *ngIf="authService.isLoggedIn()" (click)="authService.logOut()">Logout</a>
+        </ul>
+      </div>
+
+      <button class="navbar-toggler collapsed btn-ripple" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i></i>
+        <i></i>
+        <i></i>
+      </button>
+    </nav>
+  </div>
+</header>

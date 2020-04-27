@@ -1,0 +1,14 @@
+<br>
+<div class="container">
+  <div class="card" style="width:300px; border-bottom-width: 2px">
+    <img class="card-img-top" [src]="'../../../assets/images/feeds-avatar.jpg'" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title" style="font-size: 200%">{{user.firstName}} {{user.secondName}}</h4>
+      <h4 class="card-text" style="font-size: 150%;">Details:</h4>
+      <h2 style="font-size: 100%">Email: {{user.email}}</h2>
+      <h2 style="font-size: 100%">Phone Number: 0502313123</h2>
+      <a routerLink="/profile/settings" class="btn btn-primary" (click)="editUser()">Settings</a>
+    </div>
+  </div>
+</div>
+<br>

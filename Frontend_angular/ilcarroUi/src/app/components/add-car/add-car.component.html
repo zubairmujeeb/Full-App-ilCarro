@@ -1,0 +1,212 @@
+<section class="welcome-to find-car">
+  <div class="form-wrapper search-form form-find-car">
+    <div class="form-title d-block w-100">
+      <h1 class=" m-0">Add your car</h1>
+      <p class="m-0">Type your data and hit Submit!</p>
+    </div>
+    <form (ngSubmit)="onSubmit()" #addCarForm="ngForm" class="d-block w-100">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <p class="m-0">Location</p>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Country</span>
+            </div>
+            <input type="text" required id="country"
+                   name="country"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Street</span>
+            </div>
+            <input type="text" id="street"
+                   name="street"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">City</span>
+            </div>
+            <input type="text" id="city"
+                   name="city"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">State/Region/Province</span>
+            </div>
+            <input type="text" id="state"
+                   name="state"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">ZIP</span>
+            </div>
+            <input type="text" id="zip"
+                   name="street"
+                   class="form-control">
+          </div>
+          <br>
+          <p class="m-0">Car Details</p>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Serial Number</span>
+            </div>
+            <input type="text" id="serialNumber"
+                   name="serialNumber"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Make</span>
+            </div>
+            <input type="text" id="make"
+                   name="make"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Model</span>
+            </div>
+            <input type="text" id="model"
+                   name="model"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Year</span>
+            </div>
+            <input type="text" id="year"
+                   name="year"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Engine</span>
+            </div>
+            <input type="text" id="engine"
+                   name="engine"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Fuel</span>
+            </div>
+            <input type="text" id="fuel"
+                   name="fuel"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Transmission</span>
+            </div>
+            <input type="text" id="transmission"
+                   name="transmission"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">WD</span>
+            </div>
+            <input type="text" id="wd"
+                   name="wd"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Horsepower</span>
+            </div>
+            <input type="text" id="horsepower"
+                   name="horsepower"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Torque</span>
+            </div>
+            <input type="text" id="torque"
+                   name="torque"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Doors</span>
+            </div>
+            <input type="number" id="doors"
+                   name="doors"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Seats</span>
+            </div>
+            <input type="text" id="seats"
+                   name="seats"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Car Class</span>
+            </div>
+            <input type="text" id="class"
+                   name="class"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Fuel consumption</span>
+            </div>
+            <input type="text" id="fuelcon"
+                   name="fuelcon"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Image Url</span>
+            </div>
+            <input type="text" id="imageurl"
+                   name="imageurl"
+                   class="form-control">
+          </div>
+          <br>
+          <br>
+          <br>
+          <p class="m-0">About</p>
+          <div class="input-group mb-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text">About</span>
+            </div>
+            <textarea type="text" id="about"
+                   name="about"
+                   class="form-control">
+            </textarea>
+          </div>
+          <br>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Features</span>
+            </div>
+            <input type="text" id="features"
+                   name="features"
+                   class="form-control">
+          </div>
+          <br>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Price Per Day</span>
+            </div>
+            <input type="text" id="price"
+                   name="price"
+                   class="form-control">
+          </div>
+          <br>
+          <button type="submit" [disabled]="!addCarForm.form.valid" class="btn btn-red btn-yalla">Submit</button>
+        </div>
+      </div>
+    </form>
+    <span class="skewed-red-border"></span>
+  </div>
+</section>
+

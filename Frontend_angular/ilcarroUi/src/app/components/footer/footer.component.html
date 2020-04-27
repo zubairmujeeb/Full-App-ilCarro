@@ -1,0 +1,63 @@
+<footer>
+
+  <div class="container">
+    <div class="row py-4">
+      <div class="col-xl-6">
+        <div class="footer-about">
+          <p class="line-clamp line-clamp-2">Candy canes topping dessert jelly beans pie jelly beans sweet roll.
+            Toffee cotton candy cake chocolate cake. Bonbon gummi bears jelly-o bonbon fruitcake tootsie roll cake
+            cookie gingerbread. Icing wafer pie pudding ice cream bonbon
+            halvah bonbon topping. Donut halvah tiramisu bear claw tart.</p>
+          <img src="../../../assets/images/brand-logo.svg">
+        </div>
+
+      </div>
+      <div class="col-xl-6">
+        <ul class="social-links list-unstyled">
+          <li><a routerLink="/"><i class="fa fa-facebook-f"></i></a></li>
+          <li><a routerLink="/"><i class="fa fa-send"></i></a></li>
+          <li><a routerLink="/"><i class="fa fa-vk"></i></a></li>
+          <li><a routerLink="/"><i class="fa fa-instagram"></i></a></li>
+          <li><a routerLink="/"><i class="fa fa-hashtag"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-6 offset-xl-6">
+        <ul class="footer-navbar-nav">
+          <li><a class="nav-link" routerLink="/main">Search <span class="sr-only">(current)</span></a></li>
+          <li><a class="nav-link" routerLink="/car">Let the car work</a></li>
+          <li><a class="nav-link" routerLink="/terms">Terms of use</a></li>
+          <li><a class="nav-link" routerLink="/registration" *ngIf="!authService.isLoggedIn()">Sign up</a></li>
+          <li><a class="nav-link" routerLink="/login" *ngIf="!authService.isLoggedIn()">Log in</a></li>
+        </ul>
+        <div class="footer-detail">
+          <div class="footer-top-cities">
+            <h6>TOP CITIES</h6>
+            <ul>
+              <li>Netanya</li>
+              <li>City2</li>
+              <li>City3</li>
+              <li>City4</li>
+            </ul>
+            <ul>
+              <li>City5</li>
+              <li>City6</li>
+              <li>City7</li>
+              <li>City8</li>
+            </ul>
+          </div>
+          <div class="footer-info">
+            <h1 class="brand-number">09-9998889</h1>
+            <p class="brand-address">Hatzoran 4 <br>Netanya, Zip 43238, ISRAEL</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-skewed-block">
+    <h1>
+      The ultimate <br>private car rental service
+    </h1>
+  </div>
+</footer>

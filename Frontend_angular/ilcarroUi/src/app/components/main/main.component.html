@@ -1,0 +1,41 @@
+<section class="welcome-to find-car">
+  <div class="form-wrapper search-form form-find-car">
+    <div class="form-title d-block w-100">
+      <h1 class=" m-0">Find your car now!</h1>
+      <p class="m-0">Type your data and hit Yalla!</p>
+    </div>
+    <form (ngSubmit)="onSubmit()" #searchForm="ngForm" class="d-block w-100">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Location</span>
+            </div>
+            <input type="text" [(ngModel)]="filters.placeName" required #city="ngModel" id="city" name="city"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">From</span>
+            </div>
+            <input type="date" [(ngModel)]="filters.startDateTime" required #startDate="ngModel" id="startDate"
+                   name="startDate" class="form-control date">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">To</span>
+            </div>
+            <input type="date" [(ngModel)]="filters.endDateTime" required #endDate="ngModel" id="endDate" name="endDate"
+                   class="form-control date">
+          </div>
+          <button type="submit" [disabled]="!searchForm.form.valid" class="btn btn-red btn-yalla">Y’alla!</button>
+        </div>
+      </div>
+    </form>
+    <span class="skewed-red-border"></span>
+  </div>
+</section>
+
+<app-promo-banner></app-promo-banner>
+<app-most-popular-cars></app-most-popular-cars>
+<app-last-feeds></app-last-feeds>

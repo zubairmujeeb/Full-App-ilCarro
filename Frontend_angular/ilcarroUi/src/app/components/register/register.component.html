@@ -1,0 +1,70 @@
+<div class="welcome-to register">
+  <div class="form-wrapper auth-form form-register">
+    <div class="form-title">
+      <h1 class=" m-0">Registration</h1>
+      <p class="m-0">Type your data and hit Yalla!</p>
+    </div>
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">First Name</span>
+            </div>
+            <input type="text" [(ngModel)]="user.firstName" required #firstName="ngModel" id="firstName"
+                   name="firstName" class="form-control">
+          </div>
+          <div>
+            <div *ngIf="f.submitted && !firstName.valid" class="help-block">An valid firstName is required.</div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Last Name</span>
+            </div>
+            <input type="text"
+                   [(ngModel)]="user.secondName"
+                   required #secondName="ngModel"
+                   id="secondName"
+                   name="secondName"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Email</span>
+            </div>
+            <input type="email"
+                   [(ngModel)]="user.email"
+                   required #email="ngModel"
+                   id="email"
+                   name="email"
+                   pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                   class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Password</span>
+            </div>
+            <input type="password"
+                   [(ngModel)]="user.password"
+                   required #password="ngModel"
+                   id="password"
+                   name="password" class="form-control">
+          </div>
+
+          <div class="checkbox">
+            <input type="checkbox" class="checkbox checkbox-primary" id="customControlInline">
+            <label class="custom-control-label" for="customControlInline">I agree to the <a href="#">terms of use</a>
+              and <a href="#">privacy policy</a>.</label>
+          </div>
+          <button type="submit" [disabled]="!f.form.valid" class="btn btn-red btn-yalla">Y’alla!</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-promo-banner></app-promo-banner>
+<app-most-popular-cars></app-most-popular-cars>
+<app-last-feeds></app-last-feeds>
+

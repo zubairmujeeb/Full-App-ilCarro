@@ -1,0 +1,35 @@
+<div class="welcome-to register">
+  <div class="form-wrapper auth-form form-register">
+    <div class="form-title">
+      <h1 class=" m-0">Log in</h1>
+      <p class="m-0">Type your data and hit Yalla!</p>
+    </div>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Email</span>
+            </div>
+            <input type="email" [(ngModel)]="loginModel.email" required #email="ngModel" id="email"
+                   name="email" class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Password</span>
+            </div>
+            <input type="password" [(ngModel)]="loginModel.password" required #password="ngModel" id="password"
+                   name="password" class="form-control">
+          </div>
+          <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+          <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-red btn-yalla">Y’alla!</button>
+        </div>
+      </div>
+    </form>
+    <span class="skewed-red-border"></span>
+  </div>
+</div>
+
+<app-promo-banner></app-promo-banner>
+<app-most-popular-cars></app-most-popular-cars>
+<app-last-feeds></app-last-feeds>

@@ -1,0 +1,24 @@
+<section class="latest-feeds">
+  <div class="container">
+
+    <div class="section-heading">
+      <h1>Latest FEEDBACKS <br>fROM our customers</h1>
+    </div>
+    <div class="row">
+      <div class="col-lg-6" *ngFor="let comment of comments">
+        <div class="feed-block d-flex">
+          <div class="img-wrap">
+            <img src="../../../assets/images/feeds-avatar.jpg">
+          </div>
+          <div class="feed-detail">
+            <p class="line-clamp line-clamp-2 mb-0">{{comment.post}}</p>
+            <div class="feed-footer">
+              <a href="#" class="feed-by">{{comment.firstName}} {{comment.secondName}}</a>
+              <span class="feed-at">{{comment.postDate | date:'yyyy-MM-dd'}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

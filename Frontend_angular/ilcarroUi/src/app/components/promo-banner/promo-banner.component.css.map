@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "promo-banner.component.scss"
+    ],
+    "names": [],
+    "file": "promo-banner.component.css"
+}

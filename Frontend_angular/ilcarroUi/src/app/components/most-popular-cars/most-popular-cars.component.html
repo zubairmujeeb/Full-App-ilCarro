@@ -1,0 +1,93 @@
+<!--&lt;!&ndash;<section class="most-popular">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="row d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="section-heading">&ndash;&gt;-->
+<!--&lt;!&ndash;          <span>3</span>&ndash;&gt;-->
+<!--&lt;!&ndash;          <h1>MOST POPULAR <br />CHOICES IN YOUr area</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;        <p class="popular-caption pr-lg-5 mr-lg-5">&ndash;&gt;-->
+<!--&lt;!&ndash;          Candy canes topping dessert jelly beans pie jelly beans sweet roll.&ndash;&gt;-->
+<!--&lt;!&ndash;          Toffee cotton candy cake chocolate cake. Bonbon gummi bears jelly-o&ndash;&gt;-->
+<!--&lt;!&ndash;          bonbon fruitcake tootsie roll cake cookie gingerbread. Icing wafer pie&ndash;&gt;-->
+<!--&lt;!&ndash;          pudding ice cream bonbon halvah bonbon topping. Donut halvah tiramisu&ndash;&gt;-->
+<!--&lt;!&ndash;          bear claw tart.&ndash;&gt;-->
+<!--&lt;!&ndash;        </p>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="skewed-blocks-wrapper">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="skew-block-inner">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="most-popular-owl owl-carousel owl-theme" id="mostPopularOwl">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="skewed-block" *ngFor="let car of topCars">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="skewed-img"><img src="{{car.imageUrl}}"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <div class="block-detail">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h3 class="car-name">{{car.make}}-{{car.modal}}</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h1 class="car-price">{{car.pricePerDay}}</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</section>&ndash;&gt;-->
+<section class="most-popular">
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="col-lg-6">
+        <div class="section-heading">
+          <span>3</span>
+          <h1>MOST POPULAR <br />CHOICES IN YOUr area</h1>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <p class="popular-caption pr-lg-5 mr-lg-5">
+          Candy canes topping dessert jelly beans pie jelly beans sweet roll. Toffee cotton candy cake chocolate cake. Bonbon gummi bears jelly-o bonbon fruitcake tootsie roll cake cookie gingerbread. Icing wafer pie pudding ice cream bonbon halvah bonbon topping.
+          Donut halvah tiramisu bear claw tart.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="skewed-blocks-wrapper">
+    <div class="skew-block-inner">
+      <div class="most-popular-owl owl-carousel owl-theme" id="mostPopularOwl">
+         <div class="skewed-block" *ngFor="let car of topCars">
+  <div class="skewed-img"><img src="{{car.imageUrl}}"></div>
+  <div class="block-detail">
+    <h3 class="car-name">{{car.make}}-{{car.modal}}</h3>
+    <h1 class="car-price">{{car.pricePerDay}}</h1>
+  </div>
+</div>
+<!--        <div class="skewed-block">-->
+<!--          <div class="skewed-img">-->
+<!--            <img src="{{topCars[0].imageUrl}}"/>-->
+<!--          </div>-->
+<!--          <div class="block-detail">-->
+<!--            <h3 class="car-name">{{topCars[0].make}}-{{topCars[0].modal}}</h3>-->
+<!--            <h1 class="car-price">{{topCars[0].pricePerDay}}</h1>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="skewed-block">-->
+<!--          <div class="skewed-img">-->
+<!--            <img src="{{topCars[1].imageUrl}}" />-->
+<!--          </div>-->
+<!--          <div class="block-detail">-->
+<!--            <h3 class="car-name">{{topCars[1].make}}-{{topCars[1].modal}}</h3>-->
+<!--            <h1 class="car-price">{{topCars[1].pricePerDay}}</h1>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="skewed-block">-->
+<!--          <div class="skewed-img">-->
+<!--            <img src="{{topCars[2].imageUrl}}" />-->
+<!--          </div>-->
+<!--          <div class="block-detail">-->
+<!--            <h3 class="car-name">{{topCars[2].make}}-{{topCars[2].modal}}</h3>-->
+<!--            <h1 class="car-price">{{topCars[2].pricePerDay}}</h1>-->
+<!--          </div>-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
+</section>
+
