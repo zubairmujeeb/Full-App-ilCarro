@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import {retry} from 'rxjs/operators';
-import {CarAdding} from '../models/car-adding';
-import {Observable} from 'rxjs';
-import {Car} from '../models/car';
+import { retry, catchError } from 'rxjs/operators';
+import { CarAdding } from '../models/car-adding';
+import { Observable, throwError } from 'rxjs';
+import { Car } from '../models/car';
+import { SearchFilters } from '../models/search';
 
 @Injectable({
   providedIn: 'root'
@@ -47,12 +48,12 @@ export class UserService {
   }
 
   getMostPopularCars() {
-    return this.http.get(environment.apiTarget + '/car/best', {observe: 'response'})
+    return this.http.get(environment.apiTarget + '/car/best', { observe: 'response' })
       .pipe(retry(1));
   }
 
   getLatestComments() {
-    return this.http.get(environment.apiTarget + '/comments', {observe: 'response'})
+    return this.http.get(environment.apiTarget + '/comments', { observe: 'response' })
       .pipe(retry(1));
   }
 
@@ -66,8 +67,10 @@ export class UserService {
     });
   }
 
-  searchCar(postData) {
+  searchCar(postData, pageable) {
+    debugger;
     // need to pass dynamic pagination value
-    return this.http.post<Car>(environment.apiTarget + '/search?' + 'page=0&size=10', postData);
+    // tslint:disable-next-line: max-line-length
+    return this.http.post<Car>(environment.apiTarget + '/search?' + 'page=' + pageable.page + '&size=' + pageable.size + '&sort=' + pageable.sort, postData);
   }
 }

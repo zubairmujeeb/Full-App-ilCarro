@@ -1,5 +1,125 @@
 <section class="welcome-to search mt-5">
+  <div class="form-wrapper search-form form-find-car mt-5 min-h-100vh">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item active">
+        <a class="nav-link active" id="search-tab" data-toggle="tab" href="#search" role="tab" aria-controls="home"
+          aria-selected="true"><i class="fa fa-search"></i> <span>Search</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter"
+          aria-selected="false"><i class="fa fa-filter"></i> <span>Filter</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location"
+          aria-selected="false"><i class="fa fa-map-marker"></i> <span>Location</span></a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+        <div class="form-title d-block w-100">
+          <h1 class=" m-0">Find your car now!</h1>
+        </div>
+        <form class="d-block w-100">
+          <div class="row">
+            <div class="col-12 mx-auto">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Location</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.placeName" required #placeName="ngModel" id="placeName"
+                  name="placeName" class="form-control" (change)="search()">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">From</span>
+                </div>
+                <input type="date" [(ngModel)]="filters.startDateTime" required #startDateTime="ngModel"
+                  id="startDateTime" name="startDateTime" class="form-control" (change)="search()">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">To</span>
+                </div>
+                <input type="date" [(ngModel)]="filters.endDateTime" required #endDateTime="ngModel" id="endDateTime"
+                  name="endDateTime" class="form-control" (change)="search()">
+              </div>
+              <label class="block-label">Sort by:</label>
+              <div class="btn-group btn-group-sort-price" role="group" aria-label="sort-price">
+                <button type="button" (click)="setSortDirectionAsc()"
+                  class="btn btn-secondary active ascending"><span>Price (low to high)</span></button>
+                <button type="button" (click)="setSortDirectionDec()" class="btn btn-secondary"><span>Price (high to
+                    low)</span></button>
+              </div>
+              <div class="input-group mb-3">
+                <label for="priceOfCar" class="block-label">Price range ($/per day):
+                  <div class="price-range-txt">
+                    <span class="text-blue" id="priceFrom">100 </span> -
+                    <span class="text-blue" id="priceTo">45</span>
+                    <input type="hidden" [(ngModel)]="filters.maxAmount" #maxAmount="ngModel" id="maxAmount"
+                      name="maxAmount">
+                    <input type="hidden" [(ngModel)]="filters.minAmount" #minAmount="ngModel" id="minAmount"
+                      name="minAmount">
+                  </div>
+                </label>
+                <input type="text" class="js-range-slider" id="priceOfCar" name="price_range" value="" />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="tab-pane fade" id="filter" role="tabpanel" aria-labelledby="filter-tab">
+        <div class="form-title d-block w-100">
+          <h1 class=" m-0">Find your car now!</h1>
+        </div>
+        <form class="d-block w-100">
+          <div class="row">
+            <div class="col-12 mx-auto">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Make</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.make" #make="ngModel" id="make" name="make" class="form-control"
+                  (change)="search()">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Model</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.modal" #modal="ngModel" id="modal" name="modal"
+                  class="form-control" (change)="search()">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Year</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.year" #year="ngModel" id="year" name="year" class="form-control"
+                  (change)="search()">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Engine</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.engine" #engine="ngModel" id="engine" name="engine"
+                  class="form-control" (change)="search()">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Fuel</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.fuel" #fuel="ngModel" id="fuel" name="fuel" class="form-control"
+                  (change)="search()">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+        <div #mapContainer id="map" style="height: 500px;width: 100%;"></div>
+      </div>
+    </div>
+
     <span class="skewed-red-border"></span>
+  </div>
   <div class="search-detail">
     <div class="row">
       <div class="col-xl-6 col-lg-12" *ngFor="let car of cars">
@@ -8,111 +128,85 @@
             <img src="{{car.imageUrl}}">
           </div>
           <div class="block-detail">
-            <h3 class="name">{{car.make}} - {{car.modal}}</h3>
-            <small class="car-date">YEAR</small>
+            <h3 class="car-name">{{car.make}}-{{car.model}}</h3>
+            <small class="car-date">{{car.year}}</small>
             <h1 class="car-price">{{car.pricePerDay}}</h1>
           </div>
         </div>
       </div>
-    </div>
-<!--      <div class="col-xl-6 col-lg-12">-->
-<!--      <div class="search-block">-->
-<!--        <div class="img-wrap">-->
-<!--          <img src="../../../assets/images/car1.png">-->
-<!--        </div>-->
-<!--        <div class="block-detail">-->
-<!--          <h3 class="car-name">BLACK-STAGE</h3>-->
-<!--          &lt;!&ndash;            <small class="car-date">1996</small>&ndash;&gt;-->
-<!--          <h1 class="car-price">100</h1>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+      <!-- <div class="col-lg-6">
+        <div class="search-block">
+          <div class="img-wrap">
+            <img src="../../assets/images/car2.png">
+          </div>
+          <div class="block-detail">
+            <h3 class="car-name">MERCEDES-BENZ G-CLASS</h3>
+            <small class="car-date">2019</small>
+            <h1 class="car-price">180</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="search-block">
+          <div class="img-wrap">
+            <img src="../../assets/images/car2.png">
+          </div>
+          <div class="block-detail">
+            <h3 class="car-name">MERCEDES-BENZ G-CLASS</h3>
+            <small class="car-date">2019</small>
+            <h1 class="car-price">180</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="search-block">
+          <div class="img-wrap">
+            <img src="../../assets/images/car2.png">
+          </div>
+          <div class="block-detail">
+            <h3 class="car-name">MERCEDES-BENZ G-CLASS</h3>
+            <small class="car-date">2019</small>
+            <h1 class="car-price">180</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="search-block">
+          <div class="img-wrap">
+            <img src="../../assets/images/car2.png">
+          </div>
+          <div class="block-detail">
+            <h3 class="car-name">MERCEDES-BENZ G-CLASS</h3>
+            <small class="car-date">2019</small>
+            <h1 class="car-price">180</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="search-block">
+          <div class="img-wrap">
+            <img src="../../assets/images/car2.png">
+          </div>
+          <div class="block-detail">
+            <h3 class="car-name">MERCEDES-BENZ G-CLASS</h3>
+            <small class="car-date">2019</small>
+            <h1 class="car-price">180</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="search-block">
+          <div class="img-wrap">
+            <img src="../../assets/images/car2.png">
+          </div>
+          <div class="block-detail">
+            <h3 class="car-name">MERCEDES-BENZ G-CLASS</h3>
+            <small class="car-date">2019</small>
+            <h1 class="car-price">180</h1>
+          </div>
+        </div>
+      </div> -->
 
-<!--      <div class="col-xl-6 col-lg-12">-->
-<!--        <div class="search-block">-->
-<!--          <div class="img-wrap">-->
-<!--            <img src="../../../assets/images/car1.png">-->
-<!--          </div>-->
-<!--          <div class="block-detail">-->
-<!--            <h3 class="car-name">BLACK-STAGE</h3>-->
-<!--            &lt;!&ndash;            <small class="car-date">1996</small>&ndash;&gt;-->
-<!--            <h1 class="car-price">100</h1>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-xl-6 col-lg-12">-->
-<!--        <div class="search-block">-->
-<!--          <div class="img-wrap">-->
-<!--            <img src="../../../assets/images/car1.png">-->
-<!--          </div>-->
-<!--          <div class="block-detail">-->
-<!--            <h3 class="car-name">BLACK-STAGE</h3>-->
-<!--            &lt;!&ndash;            <small class="car-date">1996</small>&ndash;&gt;-->
-<!--            <h1 class="car-price">100</h1>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-xl-6 col-lg-12">-->
-<!--        <div class="search-block">-->
-<!--          <div class="img-wrap">-->
-<!--            <img src="../../../assets/images/car1.png">-->
-<!--          </div>-->
-<!--          <div class="block-detail">-->
-<!--            <h3 class="car-name">BLACK-STAGE</h3>-->
-<!--            &lt;!&ndash;            <small class="car-date">1996</small>&ndash;&gt;-->
-<!--            <h1 class="car-price">100</h1>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-xl-6 col-lg-12">-->
-<!--        <div class="search-block">-->
-<!--          <div class="img-wrap">-->
-<!--            <img src="../../../assets/images/car1.png">-->
-<!--          </div>-->
-<!--          <div class="block-detail">-->
-<!--            <h3 class="car-name">BLACK-STAGE</h3>-->
-<!--            &lt;!&ndash;            <small class="car-date">1996</small>&ndash;&gt;-->
-<!--            <h1 class="car-price">100</h1>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-xl-6 col-lg-12">-->
-<!--        <div class="search-block">-->
-<!--          <div class="img-wrap">-->
-<!--            <img src="../../../assets/images/car1.png">-->
-<!--          </div>-->
-<!--          <div class="block-detail">-->
-<!--            <h3 class="car-name">BLACK-STAGE</h3>-->
-<!--            &lt;!&ndash;            <small class="car-date">1996</small>&ndash;&gt;-->
-<!--            <h1 class="car-price">100</h1>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-xl-6 col-lg-12">-->
-<!--        <div class="search-block">-->
-<!--          <div class="img-wrap">-->
-<!--            <img src="../../../assets/images/car1.png">-->
-<!--          </div>-->
-<!--          <div class="block-detail">-->
-<!--            <h3 class="car-name">BLACK-STAGE</h3>-->
-<!--            &lt;!&ndash;            <small class="car-date">1996</small>&ndash;&gt;-->
-<!--            <h1 class="car-price">100</h1>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-xl-6 col-lg-12">-->
-<!--        <div class="search-block">-->
-<!--          <div class="img-wrap">-->
-<!--            <img src="../../../assets/images/car1.png">-->
-<!--          </div>-->
-<!--          <div class="block-detail">-->
-<!--            <h3 class="car-name">BLACK-STAGE</h3>-->
-<!--            &lt;!&ndash;            <small class="car-date">1996</small>&ndash;&gt;-->
-<!--            <h1 class="car-price">100</h1>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
     </div>
+  </div>
 </section>

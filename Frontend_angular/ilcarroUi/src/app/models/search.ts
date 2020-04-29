@@ -11,4 +11,5 @@ export class SearchFilters {
   year: string;
   engine: string;
   fuel: string;
+  ascending: boolean;
 }

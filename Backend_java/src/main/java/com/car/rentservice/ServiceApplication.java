@@ -1,28 +1,23 @@
 package com.car.rentservice;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-
+import com.car.rentservice.modal.*;
+import com.car.rentservice.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.car.rentservice.modal.Car;
-import com.car.rentservice.modal.Comments;
-import com.car.rentservice.modal.PickUpPlace;
-import com.car.rentservice.modal.Reservation;
-import com.car.rentservice.modal.User;
-import com.car.rentservice.repositories.CarRepository;
-import com.car.rentservice.repositories.CommentRepository;
-import com.car.rentservice.repositories.PickUpPlaceRepository;
-import com.car.rentservice.repositories.ReservationRepository;
-import com.car.rentservice.repositories.UserRepository;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class ServiceApplication {
@@ -31,6 +26,15 @@ public class ServiceApplication {
 		SpringApplication.run(ServiceApplication.class, args);
 	}
 
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer () {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**");
+			}
+		};
+	}
 }
 
 @Component

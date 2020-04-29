@@ -19,14 +19,14 @@
               <span class="input-group-text">From</span>
             </div>
             <input type="date" [(ngModel)]="filters.startDateTime" required #startDate="ngModel" id="startDate"
-                   name="startDate" class="form-control date">
+                   name="startDate" class="form-control">
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">To</span>
             </div>
             <input type="date" [(ngModel)]="filters.endDateTime" required #endDate="ngModel" id="endDate" name="endDate"
-                   class="form-control date">
+                   class="form-control">
           </div>
           <button type="submit" [disabled]="!searchForm.form.valid" class="btn btn-red btn-yalla">Y’alla!</button>
         </div>

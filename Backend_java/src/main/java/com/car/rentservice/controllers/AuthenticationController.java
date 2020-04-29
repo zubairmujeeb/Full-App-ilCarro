@@ -27,7 +27,6 @@ import com.car.rentservice.service.AuthenticationService;
 import com.car.rentservice.service.JwtTokenService;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class AuthenticationController {
 
 	@Autowired

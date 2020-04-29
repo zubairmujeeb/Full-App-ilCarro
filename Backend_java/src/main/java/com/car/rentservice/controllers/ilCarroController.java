@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.car.rentservice.service.ilCarroService;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class ilCarroController {
 	@Autowired
 	private ilCarroService ilCarroService;
