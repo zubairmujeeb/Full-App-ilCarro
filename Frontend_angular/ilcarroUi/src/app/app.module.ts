@@ -8,15 +8,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {ComponentsModule} from './components/components.module';
-import {MostPopularCarsComponent} from './components/most-popular-cars/most-popular-cars.component';
-import {LoginComponent} from './components/login/login.component';
-import {ProfileComponent} from './components/profile/profile.component';
-import {SettingsComponent} from './components/profile/settings/settings.component';
-import {PromoBannerComponent} from './components/promo-banner/promo-banner.component';
-import {LastFeedsComponent} from './components/last-feeds/last-feeds.component';
-import {MainComponent} from './components/main/main.component';
-import {DatePipe} from '@angular/common';
+import { ComponentsModule } from './components/components.module';
+import { MostPopularCarsComponent } from './components/most-popular-cars/most-popular-cars.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SettingsComponent } from './components/profile/settings/settings.component';
+import { PromoBannerComponent } from './components/promo-banner/promo-banner.component';
+import { LastFeedsComponent } from './components/last-feeds/last-feeds.component';
+import { MainComponent } from './components/main/main.component';
+import { DatePipe } from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,11 @@ import {DatePipe} from '@angular/common';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ComponentsModule
+    ComponentsModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.mapApiKey,
+      libraries: ['places']
+    })
   ],
   providers: [DatePipe],
   exports: [

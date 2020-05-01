@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { UserService } from './../../services/user.service';
 
-import { Component, OnInit, AfterViewInit, NgZone, ViewChild, ElementRef } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { SearchFilters } from '../../models/search';
 
@@ -11,26 +11,12 @@ import { SearchFilters } from '../../models/search';
   templateUrl: './main-results.component.html',
   styleUrls: ['./main-results.component.scss']
 })
-export class MainResultsComponent implements OnInit, AfterViewInit {
+export class MainResultsComponent implements OnInit {
 
   pageable = {};
   filters: SearchFilters;
   cars: any;
-
-  @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
-
-  map: google.maps.Map;
-  lat = 40.730610;
-  lng = -73.935242;
-  coordinates = new google.maps.LatLng(this.lat, this.lng);
-  mapOptions: google.maps.MapOptions = {
-    center: this.coordinates,
-    zoom: 8,
-  };
-  marker = new google.maps.Marker({
-    position: this.coordinates,
-    map: this.map,
-  });
+  zoom: number;
 
   constructor(private router: Router, private userService: UserService, private ngZone: NgZone) {
     this.filters = new SearchFilters();
@@ -60,16 +46,16 @@ export class MainResultsComponent implements OnInit, AfterViewInit {
     this.search();
   }
 
-  ngAfterViewInit(): void {
-
-    this.mapInitializer();
-  }
-
-
-  mapInitializer() {
-    this.map = new google.maps.Map(this.gmap.nativeElement,
-      this.mapOptions);
-    this.marker.setMap(this.map);
+  // Get Current Location Coordinates
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.filters.latitude = position.coords.latitude;
+        this.filters.longitude = position.coords.longitude;
+        this.zoom = 15;
+        this.search();
+      });
+    }
   }
 
   setSortDirectionAsc(): void {
@@ -134,13 +120,27 @@ export class MainResultsComponent implements OnInit, AfterViewInit {
     if (this.filters.fuel !== undefined && this.filters.fuel !== '') {
       postData.fuel = this.filters.fuel;
     }
-    if (this.filters.longitude !== undefined && this.filters.longitude !== '') {
+    if (this.filters.longitude !== undefined) {
       postData.longitude = this.filters.longitude;
     }
-    if (this.filters.latitude !== undefined && this.filters.latitude !== '') {
+    if (this.filters.latitude !== undefined) {
       postData.latitude = this.filters.latitude;
     }
     return postData;
+  }
+
+  onTabChange(tabname): void {
+
+    this.filters = new SearchFilters();
+    if (tabname === 'search') {
+      this.filters.maxAmount = '1000';
+      this.filters.minAmount = '0';
+      this.search();
+    } else if (tabname === 'filter') {
+      this.search();
+    } else if (tabname === 'location') {
+      this.setCurrentLocation();
+    }
   }
 
 }

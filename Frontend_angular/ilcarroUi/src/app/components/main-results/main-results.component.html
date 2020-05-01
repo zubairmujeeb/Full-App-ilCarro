@@ -1,15 +1,15 @@
 <section class="welcome-to search mt-5">
   <div class="form-wrapper search-form form-find-car mt-5 min-h-100vh">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item active">
+      <li class="nav-item active" (click)="onTabChange('search')">
         <a class="nav-link active" id="search-tab" data-toggle="tab" href="#search" role="tab" aria-controls="home"
           aria-selected="true"><i class="fa fa-search"></i> <span>Search</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" (click)="onTabChange('filter')">
         <a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter"
           aria-selected="false"><i class="fa fa-filter"></i> <span>Filter</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" (click)="onTabChange('location')" >
         <a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location"
           aria-selected="false"><i class="fa fa-map-marker"></i> <span>Location</span></a>
       </li>
@@ -114,7 +114,10 @@
         </form>
       </div>
       <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
-        <div #mapContainer id="map" style="height: 500px;width: 100%;"></div>
+        <!-- <div #mapContainer id="map" style="height: 500px;width: 100%;"></div> -->
+        <agm-map [latitude]="filters.latitude" [longitude]="filters.longitude" [zoom]="zoom" style="height: 600px;width: 100%;">
+          <agm-marker [latitude]="filters.latitude" [longitude]="filters.longitude" [markerDraggable]="true" (dragEnd)="search()"></agm-marker>
+        </agm-map>
       </div>
     </div>
 

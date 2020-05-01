@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiTarget: 'http://localhost:8900'
+  apiTarget: 'http://localhost:8900',
+  mapApiKey: 'AIzaSyB5nk2-glLaz08ylUi3Dzj2HDu-h5QLXn8'
 };
 
 /*

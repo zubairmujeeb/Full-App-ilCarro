@@ -4,8 +4,8 @@ export class SearchFilters {
   endDateTime: Date;
   minAmount: string;
   maxAmount: string;
-  latitude: string;
-  longitude: string;
+  latitude: number;
+  longitude: number;
   make: string;
   modal: string;
   year: string;
