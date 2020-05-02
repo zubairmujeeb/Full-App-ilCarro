@@ -120,6 +120,18 @@ export class MainResultsComponent implements OnInit {
     if (this.filters.fuel !== undefined && this.filters.fuel !== '') {
       postData.fuel = this.filters.fuel;
     }
+    if (this.filters.transmission !== undefined && this.filters.transmission !== '') {
+      postData.transmission = this.filters.transmission;
+    }
+    if (this.filters.wd !== undefined && this.filters.wd !== '') {
+      postData.wd = this.filters.wd;
+    }
+    if (this.filters.horsepower !== undefined && this.filters.horsepower !== '') {
+      postData.horsepower = this.filters.horsepower;
+    }
+    if (this.filters.fuelconsumption !== undefined && this.filters.fuelconsumption !== '') {
+      postData.fuelconsumption = this.filters.fuelconsumption;
+    }
     if (this.filters.longitude !== undefined) {
       postData.longitude = this.filters.longitude;
     }

@@ -12,4 +12,8 @@ export class SearchFilters {
   engine: string;
   fuel: string;
   ascending: boolean;
+  transmission: string;
+  wd: string;
+  horsepower: string;
+  fuelconsumption: string;
 }
