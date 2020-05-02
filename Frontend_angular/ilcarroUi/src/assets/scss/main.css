@@ -1281,7 +1281,7 @@ input:focus,
   font-size: 0.813rem;
   color: #5f727e;
   min-width: 80px;
-  max-width: 80px;
+  /* max-width: 80px; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

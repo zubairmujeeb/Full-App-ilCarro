@@ -109,6 +109,35 @@
                 <input type="text" [(ngModel)]="filters.fuel" #fuel="ngModel" id="fuel" name="fuel" class="form-control"
                   (change)="search()">
               </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Transmission</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.transmission" #fuel="ngModel" id="transmission" name="transmission" class="form-control"
+                  (change)="search()">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">WD</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.wd" #fuel="ngModel" id="wd" name="wd" class="form-control"
+                  (change)="search()">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Horsepower</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.horsepower" #fuel="ngModel" id="horsepower" name="horsepower" class="form-control"
+                  (change)="search()">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Fuel consumption</span>
+                </div>
+                <input type="text" [(ngModel)]="filters.fuelconsumption" #fuel="ngModel" id="fuelconsumption" name="fuelconsumption" class="form-control"
+                  (change)="search()">
+              </div>
             </div>
           </div>
         </form>
